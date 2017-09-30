@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">AlgeTiles</string>
+    <string name="Hello">Hello World, Click Me!</string>
+    <string name="ApplicationName">AlgeTiles</string>
+    <string name="Multiply">Multiply</string>
+    <string name="Factor">Factor</string>
+    <string name="Tutorial">Tutorial</string>
+    <string name="oneVar">1-Variable</string>
+    <string name="twoVar">2-Variables</string>
+    <string name="newQ">new Q</string>
+    <string name="check">chk</string>
+    <string name="refresh">refr</string>
+    <string name="drag">drag</string>
+    <string name="remove">remove</string>
+    <string name="rotate">rotate</string>
+    <string name="videoTutorial">Video Tutorial</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
