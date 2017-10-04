@@ -1,15 +1,16 @@
-package com.freelance.jptalusan.algetiles;
+package com.freelance.jptalusan.algetiles.Activities;
 
-import android.app.Application;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import com.freelance.jptalusan.algetiles.R;
+import com.freelance.jptalusan.algetiles.Utilities.Constants;
 
 public class HomeScreenActivity extends AppCompatActivity {
     private SharedPreferences prefs;
@@ -114,15 +115,15 @@ public class HomeScreenActivity extends AppCompatActivity {
 
             Button button = (Button) v;
 
-//            if (Constants.FACTOR.equals(activityType)) {
-//                Intent intent = new Intent(this, typeof(FactorActivity));
-//                if (Character.getNumericValue(button.getText().charAt(0)) == 1) {
-//                    intent.putExtra(Constants.VARIABLE_COUNT, Character.getNumericValue(button.getText().charAt(0)));
-//                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//                } else
-//                    Toast.makeText(getApplicationContext(), "Not implemented.", Toast.LENGTH_SHORT).show();
-//                startActivity(intent);
-//            } else if (Constants.MULTIPLY == activityType && Constants.ONE_VAR == Character.getNumericValue(button.getText().charAt(0))) {
+            if (Constants.FACTOR.equals(activityType)) {
+                Intent intent = new Intent(getApplicationContext(), FactorActivity.class);
+                if (Character.getNumericValue(button.getText().charAt(0)) == 1) {
+                    intent.putExtra(Constants.VARIABLE_COUNT, Character.getNumericValue(button.getText().charAt(0)));
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                } else
+                    Toast.makeText(getApplicationContext(), "Not implemented.", Toast.LENGTH_SHORT).show();
+                startActivity(intent);
+            } //else if (Constants.MULTIPLY == activityType && Constants.ONE_VAR == Character.getNumericValue(button.getText().charAt(0))) {
 //                Intent intent = new Intent(this, typeof(MultiplyActivity));
 //                intent.putExtra(Constants.VARIABLE_COUNT, Character.getNumericValue(button.getText().charAt(0)));
 //                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

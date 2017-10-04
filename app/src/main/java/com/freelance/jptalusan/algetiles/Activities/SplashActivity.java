@@ -1,11 +1,9 @@
-package com.freelance.jptalusan.algetiles;
+package com.freelance.jptalusan.algetiles.Activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
@@ -13,6 +11,7 @@ import android.view.animation.AnimationSet;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 
+import com.freelance.jptalusan.algetiles.R;
 import com.squareup.picasso.Picasso;
 
 public class SplashActivity extends AppCompatActivity {

@@ -1,4 +1,4 @@
-package com.freelance.jptalusan.algetiles;
+package com.freelance.jptalusan.algetiles.Utilities;
 
 import java.util.ArrayList;
 
@@ -7,32 +7,32 @@ public class Constants {
     public static String MULTIPLY = "Multiply";
     public static int ONE_VAR = 1;
     public static int TWO_VAR = 2;
-    public static String NEW_Q = "new Q";
-    public static String CHK = "chk";
-    public static String REFR = "refr";
-    public static String MUTE = "mute";
-    public static String FIRST_TIME = "firsttime";
+    public static final String NEW_Q = "new Q";
+    public static final String CHK = "chk";
+    public static final String REFR = "refr";
+    public static final String MUTE = "mute";
+    public static final String FIRST_TIME = "firsttime";
 
-    public static String DRAG = "drag";
-    public static String REMOVE = "remove";
-    public static String ROTATE = "rotate";
+    public static final String DRAG = "drag";
+    public static final String REMOVE = "remove";
+    public static final String ROTATE = "rotate";
 
-    public static String VARIABLE_COUNT = "variable_count";
-    public static String VIDEO_ID = "video_id";
+    public static final String VARIABLE_COUNT = "variable_count";
+    public static final String VIDEO_ID = "video_id";
 
-    public static String ONE_TILE = "tile_1";
-    public static String X_TILE = "x_tile";
-    public static String Y_TILE = "y_tile";
-    public static String X2_TILE = "x2_tile";
-    public static String Y2_TILE = "y2_tile";
-    public static String XY_TILE = "xy_tile";
+    public static final String ONE_TILE = "tile_1";
+    public static final String X_TILE = "x_tile";
+    public static final String Y_TILE = "y_tile";
+    public static final String X2_TILE = "x2_tile";
+    public static final String Y2_TILE = "y2_tile";
+    public static final String XY_TILE = "xy_tile";
 
-    public static String ONE_TILE_ROT = "tile_1_rot";
-    public static String X_TILE_ROT = "x_tile_rot";
-    public static String Y_TILE_ROT = "y_tile_rot";
-    public static String X2_TILE_ROT = "x2_tile_rot";
-    public static String Y2_TILE_ROT = "y2_tile_rot";
-    public static String XY_TILE_ROT = "xy_tile_rot";
+    public static final String ONE_TILE_ROT = "tile_1_rot";
+    public static final String X_TILE_ROT = "x_tile_rot";
+    public static final String Y_TILE_ROT = "y_tile_rot";
+    public static final String X2_TILE_ROT = "x2_tile_rot";
+    public static final String Y2_TILE_ROT = "y2_tile_rot";
+    public static final String XY_TILE_ROT = "xy_tile_rot";
 
     public static String BUTTON_TYPE = "BUTTON_TYPE";
     public static String CLONED_BUTTON = "CLONE_BUTTON";

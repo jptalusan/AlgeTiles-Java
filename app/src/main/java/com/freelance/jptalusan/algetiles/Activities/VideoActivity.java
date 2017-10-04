@@ -1,11 +1,13 @@
-package com.freelance.jptalusan.algetiles;
+package com.freelance.jptalusan.algetiles.Activities;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.MediaController;
 import android.widget.VideoView;
+
+import com.freelance.jptalusan.algetiles.R;
+import com.freelance.jptalusan.algetiles.Utilities.Constants;
 
 /**
  * Created by jptalusan on 9/30/17.
