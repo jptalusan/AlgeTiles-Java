@@ -2,7 +2,6 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion project.ext.myCompileSdkVersion
-    buildToolsVersion project.ext.myBuildToolsVersion
     defaultConfig {
         applicationId "com.freelance.jptalusan.algetiles"
         minSdkVersion project.ext.myMinSdkVersion

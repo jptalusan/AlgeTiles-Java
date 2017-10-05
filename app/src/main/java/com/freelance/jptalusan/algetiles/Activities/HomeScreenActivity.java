@@ -123,12 +123,12 @@ public class HomeScreenActivity extends AppCompatActivity {
                 } else
                     Toast.makeText(getApplicationContext(), "Not implemented.", Toast.LENGTH_SHORT).show();
                 startActivity(intent);
-            } //else if (Constants.MULTIPLY == activityType && Constants.ONE_VAR == Character.getNumericValue(button.getText().charAt(0))) {
-//                Intent intent = new Intent(this, typeof(MultiplyActivity));
-//                intent.putExtra(Constants.VARIABLE_COUNT, Character.getNumericValue(button.getText().charAt(0)));
-//                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//                startActivity(intent);
-//            } else if (Constants.MULTIPLY == activityType && Constants.TWO_VAR == Character.getNumericValue(button.getText().charAt(0))) {
+            } else if (Constants.MULTIPLY.equals(activityType) && Constants.ONE_VAR == Character.getNumericValue(button.getText().charAt(0))) {
+                Intent intent = new Intent(getApplicationContext(), MultiplyActivity.class);
+                intent.putExtra(Constants.VARIABLE_COUNT, Character.getNumericValue(button.getText().charAt(0)));
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+            } // else if (Constants.MULTIPLY == activityType && Constants.TWO_VAR == Character.getNumericValue(button.getText().charAt(0))) {
 //                Intent intent = new Intent(this, typeof(MultiplyTwoVarActivity));
 //                intent.putExtra(Constants.VARIABLE_COUNT, Character.getNumericValue(button.getText().charAt(0)));
 //                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

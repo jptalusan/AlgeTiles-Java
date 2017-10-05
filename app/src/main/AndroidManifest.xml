@@ -23,6 +23,7 @@
         <activity android:name=".Activities.TutorialActivity"/>
         <activity android:name=".Activities.VideoActivity"/>
         <activity android:name=".Activities.FactorActivity"/>
+        <activity android:name=".Activities.MultiplyActivity"/>
     </application>
 
 </manifest>

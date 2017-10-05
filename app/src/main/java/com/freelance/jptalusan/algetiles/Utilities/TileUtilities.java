@@ -407,7 +407,7 @@ public class TileUtilities {
 
     public static Rect checkIfUserDropsOnRect(int vId, String tileType,
                                               float x, float y, int command,
-                                              List<List<RectTile>> rectTileListList)
+                                              ArrayList<ArrayList<RectTile>> rectTileListList)
     {
         if (R.id.upperRight == vId)
         {
@@ -502,7 +502,7 @@ public class TileUtilities {
 
     public static void generateInnerLayoutTileArrays(int heightInPx, int widthInPx,
                                                      List<ViewGroup> innerGridLayoutList,
-                                                     List<List<RectTile>> rectTileListList)
+                                                     ArrayList<ArrayList<RectTile>> rectTileListList)
     {
         Log.d(TAG, "generateInnerLayoutTileArrays");
         ArrayList<String> midUp = new ArrayList<>();
