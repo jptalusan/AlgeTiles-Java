@@ -1,10 +1,14 @@
 package com.freelance.jptalusan.algetiles.Activities;
 
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AlertDialog;
 import android.text.SpannableStringBuilder;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.SuperscriptSpan;
@@ -23,6 +27,7 @@ import com.freelance.jptalusan.algetiles.ExtendedViews.AlgeTilesTextView;
 import com.freelance.jptalusan.algetiles.R;
 import com.freelance.jptalusan.algetiles.Utilities.AlgorithmUtilities;
 import com.freelance.jptalusan.algetiles.Utilities.Constants;
+import com.freelance.jptalusan.algetiles.Utilities.CustomEquationDialog;
 import com.freelance.jptalusan.algetiles.Utilities.GridValue;
 import com.freelance.jptalusan.algetiles.Utilities.Listeners;
 import com.freelance.jptalusan.algetiles.Utilities.TileUtilities;
@@ -34,7 +39,7 @@ import java.util.ArrayList;
  * Created by jptalusan on 10/5/17.
  */
 
-public class MultiplyActivity extends AlgeTilesActivity {
+public class MultiplyActivity extends AlgeTilesActivity implements CustomEquationDialog.CustomEquationDialogListener {
 
     private static String TAG = "AlgeTiles:Multiply";
     public Button customQuestion;
@@ -199,7 +204,7 @@ public class MultiplyActivity extends AlgeTilesActivity {
         gridValueList.add(midLeftGV);
         gridValueList.add(midRightGV);
 
-        setupNewQuestion(numberOfVariables);
+        setupNewQuestion();
 
         correct = MediaPlayer.create(this, R.raw.correct);
         incorrect = MediaPlayer.create(this, R.raw.wrong);
@@ -261,9 +266,17 @@ public class MultiplyActivity extends AlgeTilesActivity {
         result.setText(output);
     }
 
+    @Override
+    public void onButtonClicked(String s) {
+        Log.d(TAG, "clicked: " + s);
+    }
+
     private View.OnClickListener CustomQuestion_Click = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            FragmentManager fm = getSupportFragmentManager();
+            CustomEquationDialog editNameDialogFragment = CustomEquationDialog.newInstance("Some Title");
+            editNameDialogFragment.show(fm, "fragment_edit_name");
 //            var dialog = CustomEquationDialog.NewInstance();
 //            dialog.Dismissed += (s, events) =>
 //            {
@@ -293,34 +306,39 @@ public class MultiplyActivity extends AlgeTilesActivity {
     private View.OnClickListener button_click = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-//            var button = sender as Button;
-//            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//            AlertDialog alertDialog = builder.Create();
-//            alertDialog.SetMessage("Are you sure?");
-//
-//            alertDialog.SetButton("Yes", (s, ev) =>
-//            {
-//                switch (button.Text)
-//                {
-//                    case Constants.NEW_Q:
-//                        setupNewQuestion(numberOfVariables);
-//                        refreshScreen(Constants.MULTIPLY, gridValueList, innerGridLayoutList, outerGridLayoutList);
-//                        break;
-//                    case Constants.REFR:
-//                        refreshScreen(Constants.MULTIPLY, gridValueList, innerGridLayoutList, outerGridLayoutList);
-//                        break;
-//                    case Constants.CHK:
-//                        checkAnswers(this);
-//                        break;
-//                }
-//            });
-//
-//            alertDialog.SetButton2("No", (s, ev) =>
-//            {
-//
-//            });
-//
-//            alertDialog.Show();
+            final Button button = (Button) v;
+            AlertDialog.Builder builder;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                builder = new AlertDialog.Builder(MultiplyActivity.this, android.R.style.Theme_Material_Dialog_NoActionBar);
+            } else {
+                builder = new AlertDialog.Builder(MultiplyActivity.this);
+            }
+            builder.setTitle("Button pressed")
+                .setMessage("Are you sure?")
+                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // do nothing
+                    }
+                })
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        switch (button.getText().toString()) {
+                            case Constants.NEW_Q:
+                                setupNewQuestion();
+                                refreshScreen(Constants.MULTIPLY, gridValueList, innerGridLayoutList, outerGridLayoutList);
+                                break;
+                            case Constants.REFR:
+                                refreshScreen(Constants.MULTIPLY, gridValueList, innerGridLayoutList, outerGridLayoutList);
+                                break;
+                            case Constants.CHK:
+                                checkAnswers();
+                                break;
+                        }
+                    }
+                })
+                .show();
         }
     };
 }

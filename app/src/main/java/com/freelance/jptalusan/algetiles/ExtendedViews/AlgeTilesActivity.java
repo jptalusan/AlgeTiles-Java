@@ -201,7 +201,7 @@ public abstract class AlgeTilesActivity extends AppCompatActivity {
         }
     }
 
-    public void checkAnswers(AlgeTilesActivity multiplyActivity)
+    public void checkAnswers()
     {
         if (!isFirstAnswerCorrect)
         {
@@ -675,7 +675,7 @@ public abstract class AlgeTilesActivity extends AppCompatActivity {
         }
     }
 
-    protected void setupNewQuestion(int numberOfVariables)
+    protected void setupNewQuestion()
     {
         isFirstAnswerCorrect = false;
         vars = AlgorithmUtilities.RNG(Constants.MULTIPLY, numberOfVariables);
