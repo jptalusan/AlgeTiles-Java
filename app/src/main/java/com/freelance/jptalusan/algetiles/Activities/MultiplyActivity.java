@@ -267,8 +267,26 @@ public class MultiplyActivity extends AlgeTilesActivity implements CustomEquatio
     }
 
     @Override
-    public void onButtonClicked(String s) {
-        Log.d(TAG, "clicked: " + s);
+    public void onButtonClicked(int[] questions) {
+        if (questions.length != 4) {
+            Log.d(TAG, "clicked: wrong");
+        } else {
+            Log.d(TAG, "clicked: " + questions[0] + ", " + questions[1] + ", " + questions[2] + ", " + questions[3]);
+            if (AlgorithmUtilities.isSuppliedMultiplyEquationValid(questions, Constants.ONE_VAR))
+            {
+                vars.clear();
+                for(int i = 0; i < questions.length; ++i)
+                {
+                    vars.add(questions[i]);
+                }
+                setupQuestionString(vars);
+                refreshScreen(Constants.MULTIPLY, gridValueList, innerGridLayoutList, outerGridLayoutList);
+            }
+            else
+            {
+                Toast.makeText(this, "Invalid, please enter values again.", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     private View.OnClickListener CustomQuestion_Click = new View.OnClickListener() {
@@ -277,29 +295,6 @@ public class MultiplyActivity extends AlgeTilesActivity implements CustomEquatio
             FragmentManager fm = getSupportFragmentManager();
             CustomEquationDialog editNameDialogFragment = CustomEquationDialog.newInstance("Some Title");
             editNameDialogFragment.show(fm, "fragment_edit_name");
-//            var dialog = CustomEquationDialog.NewInstance();
-//            dialog.Dismissed += (s, events) =>
-//            {
-//                if (events.vars[0].HasValue)
-//                    Console.WriteLine("Done with dialog: " + events.vars[0] + "," + events.vars[1] + "," + events.vars[2] + "," + events.vars[3]);
-//
-//                //Replace vars with event.vars and rerun the setupQuestionString(vars) after checking if this is valid, if not, show toast
-//                if (AlgorithmUtilities.isSuppliedMultiplyEquationValid(events.vars, Constants.ONE_VAR))
-//                {
-//                    vars.Clear();
-//                    for(int i = 0; i < events.vars.Length; ++i)
-//                    {
-//                        vars.Add(events.vars[i].GetValueOrDefault());
-//                    }
-//                    setupQuestionString(vars);
-//                    refreshScreen(Constants.MULTIPLY, gridValueList, innerGridLayoutList, outerGridLayoutList);
-//                }
-//                else
-//                {
-//                    Toast.MakeText(this, "Invalid, please enter values again.", ToastLength.Short).Show();
-//                }
-//            };
-//            dialog.Show(FragmentManager, "dialog");
         }
     };
 

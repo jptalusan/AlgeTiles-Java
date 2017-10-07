@@ -64,18 +64,18 @@ public class Constants {
     public static String PROCEED_TO_COEFF = "Proceed to coefficients";
 
 
-    public static String EQUATION_001 = "1,1,1,-6";
-    public static String EQUATION_002 = "2,-1,1,4";
-    public static String EQUATION_003 = "2,0,1,3";
-    public static String EQUATION_004 = "1,-3,1,3";
-    public static String EQUATION_005 = "1,2,1,2";
-    public static String EQUATION_006 = "2,-1,2,1";
-    public static String EQUATION_007 = "1,0,1,-4";
-    public static String EQUATION_008 = "1,-2,1,3";
-    public static String EQUATION_009 = "-2,5,-3,7";
-    public static String EQUATION_010 = "-2,5,-1,1";
-    public static String EQUATION_011 = "1,4,3,-2";
-    public static String EQUATION_012 = "2,3,1,-4";
+    private static String EQUATION_001 = "1,1,1,-6";
+    private static String EQUATION_002 = "2,-1,1,4";
+    private static String EQUATION_003 = "2,0,1,3";
+    private static String EQUATION_004 = "1,-3,1,3";
+    private static String EQUATION_005 = "1,2,1,2";
+    private static String EQUATION_006 = "2,-1,2,1";
+    private static String EQUATION_007 = "1,0,1,-4";
+    private static String EQUATION_008 = "1,-2,1,3";
+    private static String EQUATION_009 = "-2,5,-3,7";
+    private static String EQUATION_010 = "-2,5,-1,1";
+    private static String EQUATION_011 = "1,4,3,-2";
+    private static String EQUATION_012 = "2,3,1,-4";
 
     //Equations
     public static ArrayList<String> EQUATIONS = new ArrayList<String>()
@@ -93,4 +93,6 @@ public class Constants {
                 add(EQUATION_011);
                 add(EQUATION_012);
     }};
+
+    public final static int UNDEFINED = 999;
 }

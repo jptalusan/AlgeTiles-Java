@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.freelance.jptalusan.algetiles.R;
 
@@ -26,12 +27,12 @@ public class CustomEquationDialog extends DialogFragment implements View.OnClick
     protected EditText one_value_1;
     protected EditText x_value_2;
     protected EditText one_value_2;
+    CustomEquationDialogListener listener;
 
     //protected Button ok;
     //protected Button cancel;
     public interface CustomEquationDialogListener {
-//        void onButtonClicked(ArrayList<Integer> vars);
-        void onButtonClicked(String s);
+        void onButtonClicked(int[] vars);
     }
 
 
@@ -53,6 +54,7 @@ public class CustomEquationDialog extends DialogFragment implements View.OnClick
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        listener = (CustomEquationDialogListener) getActivity();
     }
 
     @Override
@@ -78,17 +80,57 @@ public class CustomEquationDialog extends DialogFragment implements View.OnClick
 
         @Override
     public void onClick(View v) {
-            CustomEquationDialogListener listener = (CustomEquationDialogListener) getActivity();
+
             switch (v.getId()) {
             case R.id.ok:
                 Log.d("Custom", "ok");
-                listener.onButtonClicked("ok works.");
-
+                handleOkClick();
+                this.dismiss();
                 break;
             case R.id.cancel:
                 Log.d("Custom", "cancel");
-                listener.onButtonClicked("cancel works.");
+                this.dismiss();
+                listener.onButtonClicked(new int[1]);
                 break;
+        }
+    }
+
+    private void handleOkClick() {
+
+        int[] questions = new int[4];
+        questions[0] = Constants.UNDEFINED;
+        questions[1] = Constants.UNDEFINED;
+        questions[2] = Constants.UNDEFINED;
+        questions[3] = Constants.UNDEFINED;
+
+        if (!(x_value_1.getText().toString().trim().isEmpty()))
+        {
+            questions[0] = TileUtilities.tryParseInt(x_value_1.getText().toString());
+        }
+
+        if (!(one_value_1.getText().toString().trim().isEmpty()))
+        {
+            questions[1] = TileUtilities.tryParseInt(one_value_1.getText().toString());
+        }
+
+        if (!(x_value_2.getText().toString().trim().isEmpty()))
+        {
+            questions[2] = TileUtilities.tryParseInt(x_value_2.getText().toString());
+        }
+
+        if (!(one_value_2.getText().toString().trim().isEmpty()))
+        {
+            questions[3] = TileUtilities.tryParseInt(one_value_2.getText().toString());
+        }
+
+        if (questions[0] != Constants.UNDEFINED &&
+                questions[1] != Constants.UNDEFINED &&
+                questions[2] != Constants.UNDEFINED &&
+                questions[3] != Constants.UNDEFINED )
+        {
+            listener.onButtonClicked(questions);
+        } else {
+            Toast.makeText(getActivity(), "Invalid, please enter values again.", Toast.LENGTH_SHORT).show();
         }
     }
 }

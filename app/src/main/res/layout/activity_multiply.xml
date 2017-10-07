@@ -401,11 +401,12 @@
             android:layout_height="wrap_content"
             android:id="@+id/notRotatedButtonLayout"
             android:layout_gravity="center"
-            android:gravity="center">
+            android:gravity="center"
+            android:padding="5dp">
             <Space
                 android:id="@+id/space3"
                 android:layout_width="1dp"
-                android:layout_height="8dp" />
+                android:layout_height="20dp" />
             <com.freelance.jptalusan.algetiles.ExtendedViews.AlgeTilesTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

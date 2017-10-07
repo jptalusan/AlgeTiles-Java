@@ -577,9 +577,9 @@ public abstract class AlgeTilesActivity extends AppCompatActivity {
             {
                 int[] answer = new int[3];
                 int temp = 0;
-                answer[0] = tryParseInt(x2ET.getText().toString());
-                answer[1] = tryParseInt(xET.getText().toString());
-                answer[2] = tryParseInt(oneET.getText().toString());
+                answer[0] = TileUtilities.tryParseInt(x2ET.getText().toString());
+                answer[1] = TileUtilities.tryParseInt(xET.getText().toString());
+                answer[2] = TileUtilities.tryParseInt(oneET.getText().toString());
 
                 if ((Math.abs(answer[0]) +
                         Math.abs(answer[1]) +
@@ -599,12 +599,12 @@ public abstract class AlgeTilesActivity extends AppCompatActivity {
             {
                 int[] answer = new int[6];
                 int temp = 0;
-                answer[0] = tryParseInt(x2ET.getText().toString());
-                answer[1] = tryParseInt(y2ET.getText().toString());
-                answer[2] = tryParseInt(xyET.getText().toString());
-                answer[3] = tryParseInt(xET.getText().toString());
-                answer[4] = tryParseInt(yET.getText().toString());
-                answer[5] = tryParseInt(oneET.getText().toString());
+                answer[0] = TileUtilities.tryParseInt(x2ET.getText().toString());
+                answer[1] = TileUtilities.tryParseInt(y2ET.getText().toString());
+                answer[2] = TileUtilities.tryParseInt(xyET.getText().toString());
+                answer[3] = TileUtilities.tryParseInt(xET.getText().toString());
+                answer[4] = TileUtilities.tryParseInt(yET.getText().toString());
+                answer[5] = TileUtilities.tryParseInt(oneET.getText().toString());
 
                 for (int i : answer)
                 Log.d(TAG, "answer:" + i);
@@ -664,14 +664,6 @@ public abstract class AlgeTilesActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), Constants.WRONG + " " + Constants.COEFFICIENTS, Toast.LENGTH_SHORT).show();
                 incorrectPrompt(editTextList, 0);
             }
-        }
-    }
-
-    public int tryParseInt(String value) {
-        try {
-            return Integer.parseInt(value);
-        } catch (NumberFormatException e) {
-            return 0;
         }
     }
 

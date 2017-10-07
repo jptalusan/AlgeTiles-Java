@@ -83,6 +83,24 @@ public class HomeScreenActivity extends AppCompatActivity {
         }
     };
 
+    //TODO: fix the layout change when back is pressed
+    @Override
+    public void onBackPressed() {
+        if (oneVarBtn.getVisibility() == View.VISIBLE) {
+            multiplyActivityButton.setVisibility(View.VISIBLE);
+            factorActivityButton.setVisibility(View.VISIBLE);
+            factorTutorialButton.setVisibility(View.VISIBLE);
+            multiplyTutorialButton.setVisibility(View.VISIBLE);
+            generalTutorialButton.setVisibility(View.VISIBLE);
+
+            oneVarBtn.setVisibility(View.INVISIBLE);
+            twoVarBtn.setVisibility(View.INVISIBLE);
+
+        } else {
+            finish();
+        }
+    }
+
     View.OnClickListener tutorial_button_click = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -119,14 +137,14 @@ public class HomeScreenActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), FactorActivity.class);
                 if (Character.getNumericValue(button.getText().charAt(0)) == 1) {
                     intent.putExtra(Constants.VARIABLE_COUNT, Character.getNumericValue(button.getText().charAt(0)));
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 } else
                     Toast.makeText(getApplicationContext(), "Not implemented.", Toast.LENGTH_SHORT).show();
                 startActivity(intent);
             } else if (Constants.MULTIPLY.equals(activityType) && Constants.ONE_VAR == Character.getNumericValue(button.getText().charAt(0))) {
                 Intent intent = new Intent(getApplicationContext(), MultiplyActivity.class);
                 intent.putExtra(Constants.VARIABLE_COUNT, Character.getNumericValue(button.getText().charAt(0)));
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             } // else if (Constants.MULTIPLY == activityType && Constants.TWO_VAR == Character.getNumericValue(button.getText().charAt(0))) {
 //                Intent intent = new Intent(this, typeof(MultiplyTwoVarActivity));

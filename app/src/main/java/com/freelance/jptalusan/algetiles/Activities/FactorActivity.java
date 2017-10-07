@@ -10,6 +10,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.Space;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -37,6 +38,8 @@ import com.freelance.jptalusan.algetiles.ExtendedViews.AlgeTilesTextView;
 import com.freelance.jptalusan.algetiles.R;
 import com.freelance.jptalusan.algetiles.Utilities.AlgorithmUtilities;
 import com.freelance.jptalusan.algetiles.Utilities.Constants;
+import com.freelance.jptalusan.algetiles.Utilities.CustomEquationDialog;
+import com.freelance.jptalusan.algetiles.Utilities.CustomEquationDialogFactor;
 import com.freelance.jptalusan.algetiles.Utilities.GridValue;
 import com.freelance.jptalusan.algetiles.Utilities.RectTile;
 import com.freelance.jptalusan.algetiles.Utilities.TileUtilities;
@@ -47,7 +50,7 @@ import java.util.Comparator;
 
 import me.grantland.widget.AutofitTextView;
 
-public class FactorActivity extends AppCompatActivity {
+public class FactorActivity extends AppCompatActivity implements CustomEquationDialogFactor.CustomEquationDialogFactorListener {
     private static String TAG = "AlgeTiles:Factor";
     private AutofitTextView result;
     private Boolean hasButtonBeenDroppedInCorrectzone = false;
@@ -409,24 +412,27 @@ public class FactorActivity extends AppCompatActivity {
                     startActivity(intent);
                     break;
                 case R.id.custom:
-//                    var dialog = CustomEquationDialogFactor.NewInstance();
-//                    dialog.Dismissed += (s, events) =>
-//                {
-//                    if (events.index != -1)
-//                        Console.WriteLine("Done with dialog: " + events.index);
-//
-//                    //Parse events.equation String and then
-//                    //Replace vars with event.vars and rerun the setupQuestionString(vars) after checking if this is valid, if not, show toast
-//                    vars = AlgorithmUtilities.parseEquation(Constants.EQUATIONS[events.index]);
-//                    expandedVars = AlgorithmUtilities.expandingVars(vars);
-//                    setupQuestionString(expandedVars);
-//                    refreshScreen(Constants.FACTOR, gridValueList, innerGridLayoutList, outerGridLayoutList);
-//                };
-//                dialog.Show(FragmentManager, "dialog");
+                    FragmentManager fm = getSupportFragmentManager();
+                    CustomEquationDialogFactor editNameDialogFragment = CustomEquationDialogFactor.newInstance("Some Title");
+                    editNameDialogFragment.show(fm, "fragment_edit_name");
                 break;
             }
         }
     };
+
+    @Override
+    public void onButtonClicked(int index) {
+        if (index == -1) {
+            Log.d(TAG, "clicked: wrong");
+        } else {
+            Log.d(TAG, "clicked: " + Constants.EQUATIONS.get(index));
+            vars = AlgorithmUtilities.parseEquation(Constants.EQUATIONS.get(index));
+            expandedVars = AlgorithmUtilities.expandingVars(vars);
+            setupQuestionString(expandedVars);
+            refreshScreen(Constants.FACTOR, gridValueList, innerGridLayoutList, outerGridLayoutList);
+            //TODO: handle the new values here.
+        }
+    }
 
 //
     View.OnTouchListener layoutTouch = new View.OnTouchListener() {
@@ -954,10 +960,10 @@ public class FactorActivity extends AppCompatActivity {
         {
             int[] answer = new int[4];
             int temp = 0;
-            answer[0] = tryParseInt(x_value_1.getText().toString());
-            answer[1] = tryParseInt(one_value_1.getText().toString());
-            answer[2] = tryParseInt(x_value_2.getText().toString());
-            answer[3] = tryParseInt(one_value_2.getText().toString());
+            answer[0] = TileUtilities.tryParseInt(x_value_1.getText().toString());
+            answer[1] = TileUtilities.tryParseInt(one_value_1.getText().toString());
+            answer[2] = TileUtilities.tryParseInt(x_value_2.getText().toString());
+            answer[3] = TileUtilities.tryParseInt(one_value_2.getText().toString());
 
             Log.d(TAG, "answer:" + answer[0] + ", " + answer[1] + ", " + answer[2] + ", " + answer[3]);
             Log.d(TAG, "answer:" + vars.get(0) + ", " + vars.get(1) + ", " + vars.get(2) + ", " + vars.get(3));
@@ -1008,14 +1014,6 @@ public class FactorActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), Constants.WRONG + " " + Constants.COEFFICIENTS, Toast.LENGTH_SHORT).show();
                 incorrectPrompt(editTextList, 0);
             }
-        }
-    }
-//
-    public int tryParseInt(String value) {
-        try {
-            return Integer.parseInt(value);
-        } catch (NumberFormatException e) {
-            return 0;
         }
     }
 
