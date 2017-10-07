@@ -23,10 +23,10 @@ public class SplashActivity extends AppCompatActivity {
 
         int imagesToShow[] = { R.drawable.pcieerd, R.drawable.ateneo, R.drawable.mathplus_logo1 };
 
-//        ImageView logo = findViewById(R.id.logo);
-//        animate(logo, imagesToShow, 0,false);
+        ImageView logo = findViewById(R.id.logo);
+        animate(logo, imagesToShow, 0,false);
 
-        goToMain(); //for debug
+//        goToMain(); //for debug
     }
 
     private void goToMain() {

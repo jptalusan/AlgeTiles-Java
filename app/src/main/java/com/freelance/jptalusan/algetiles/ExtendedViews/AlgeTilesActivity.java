@@ -670,6 +670,7 @@ public abstract class AlgeTilesActivity extends AppCompatActivity {
     protected void setupNewQuestion()
     {
         isFirstAnswerCorrect = false;
+        Log.d(TAG, "Number of vars: " + numberOfVariables);
         vars = AlgorithmUtilities.RNG(Constants.MULTIPLY, numberOfVariables);
 
         //(ax + b)(cx + d)

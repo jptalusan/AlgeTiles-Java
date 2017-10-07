@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:whatever="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerInParent="true"
+    android:layout_gravity="center"
+    android:background="#CFE2F3"
+    android:baselineAligned="false"
+    android:orientation="horizontal"
+    android:padding="0dp"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="0dp">
+
+    <com.freelance.jptalusan.algetiles.ExtendedViews.AlgeTilesRelativeLayout
+        android:id="@+id/upperLeft"
+        android:layout_width="0px"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/shape"
+        whatever:layout_constraintBottom_toTopOf="@+id/middlehor"
+        whatever:layout_constraintEnd_toStartOf="@+id/middlevert"
+        whatever:layout_constraintStart_toStartOf="parent"
+        whatever:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/controls"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        whatever:layout_constraintGuide_percent="0.7" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/middlevert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        whatever:layout_constraintGuide_percent="0.35" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/middlehor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        whatever:layout_constraintGuide_percent="0.5" />
+
+    <com.freelance.jptalusan.algetiles.ExtendedViews.AlgeTilesRelativeLayout
+        android:id="@+id/upperRight"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="0dp"
+        android:layout_weight="92"
+        android:background="@drawable/shape"
+        whatever:layout_constraintBottom_toTopOf="@+id/middlehor"
+        whatever:layout_constraintEnd_toStartOf="@+id/controls"
+        whatever:layout_constraintStart_toStartOf="@+id/middlevert"
+        whatever:layout_constraintTop_toTopOf="parent" />
+
+    <GridLayout
+        android:id="@+id/upperMiddle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_weight="16"
+        android:background="@drawable/shape"
+        android:columnCount="1"
+        android:rotationX="180"
+        android:rowCount="8"
+        whatever:layout_constraintBottom_toTopOf="@+id/middlehor"
+        whatever:layout_constraintEnd_toStartOf="@+id/upperRight"
+        whatever:layout_constraintStart_toEndOf="@+id/upperLeft"
+        whatever:layout_constraintTop_toTopOf="parent" />
+
+    <com.freelance.jptalusan.algetiles.ExtendedViews.AlgeTilesRelativeLayout
+        android:id="@+id/lowerLeft"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="92"
+        android:background="@drawable/shape"
+        whatever:layout_constraintBottom_toBottomOf="parent"
+        whatever:layout_constraintEnd_toStartOf="@+id/middlevert"
+        whatever:layout_constraintStart_toStartOf="parent"
+        whatever:layout_constraintTop_toTopOf="@+id/middlehor" />
+
+    <com.freelance.jptalusan.algetiles.ExtendedViews.AlgeTilesRelativeLayout
+        android:id="@+id/lowerRight"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="92"
+        android:background="@drawable/shape"
+        whatever:layout_constraintBottom_toBottomOf="parent"
+        whatever:layout_constraintEnd_toStartOf="@+id/controls"
+        whatever:layout_constraintStart_toStartOf="@+id/middlevert"
+        whatever:layout_constraintTop_toTopOf="@+id/middlehor" />
+
+    <GridLayout
+        android:id="@+id/lowerMiddle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="16"
+        android:background="@drawable/shape"
+        android:columnCount="1"
+        android:rowCount="8"
+        whatever:layout_constraintBottom_toBottomOf="parent"
+        whatever:layout_constraintEnd_toStartOf="@+id/lowerRight"
+        whatever:layout_constraintHorizontal_bias="0.5"
+        whatever:layout_constraintStart_toEndOf="@+id/lowerLeft"
+        whatever:layout_constraintTop_toTopOf="@+id/middlehor" />
+
+    <GridLayout
+        android:id="@+id/middleLeft"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="0dp"
+        android:layout_weight="92"
+        android:background="@drawable/shape"
+        android:columnCount="12"
+        android:rotationY="180"
+        android:rowCount="1"
+        whatever:layout_constraintBottom_toTopOf="@+id/lowerLeft"
+        whatever:layout_constraintEnd_toStartOf="@+id/middlevert"
+        whatever:layout_constraintStart_toStartOf="parent"
+        whatever:layout_constraintTop_toBottomOf="@+id/upperLeft" />
+
+    <GridLayout
+        android:id="@+id/middleRight"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="0dp"
+        android:layout_weight="92"
+        android:background="@drawable/shape"
+        android:columnCount="12"
+        android:rowCount="1"
+        whatever:layout_constraintBottom_toTopOf="@+id/lowerRight"
+        whatever:layout_constraintEnd_toStartOf="@+id/controls"
+        whatever:layout_constraintHorizontal_bias="1.0"
+        whatever:layout_constraintStart_toStartOf="@+id/middlevert"
+        whatever:layout_constraintTop_toBottomOf="@+id/upperRight" />
+
+    <me.grantland.widget.AutofitTextView
+        android:id="@+id/result"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_weight="5"
+        android:background="@drawable/tvbackground"
+        android:gravity="center"
+        android:textColor="#000000"
+        whatever:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        whatever:layout_constraintEnd_toEndOf="parent"
+        whatever:layout_constraintHorizontal_bias="0.5"
+        whatever:layout_constraintStart_toStartOf="@+id/controls"
+        whatever:layout_constraintTop_toTopOf="parent"
+        whatever:layout_constraintVertical_chainStyle="spread"
+        whatever:minTextSize="16sp" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="161dp"
+        android:layout_height="30dp"
+        android:layout_weight="5"
+        android:gravity="fill"
+        android:orientation="horizontal"
+        android:padding="0dp"
+        whatever:layout_constraintBottom_toTopOf="@+id/linearLayout6"
+        whatever:layout_constraintEnd_toEndOf="parent"
+        whatever:layout_constraintStart_toStartOf="@+id/controls"
+        whatever:layout_constraintTop_toBottomOf="@+id/result">
+
+        <EditText
+            android:id="@+id/x2_value"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#ffffff"
+            android:gravity="bottom|center"
+            android:hint="......."
+            android:imeOptions="actionDone"
+            android:inputType="numberSigned"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/x2TV"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:text="x^2 + "
+            android:textColor="#000000" />
+
+        <EditText
+            android:id="@+id/y2_value"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#ffffff"
+            android:gravity="bottom|center"
+            android:hint="......."
+            android:imeOptions="actionDone"
+            android:inputType="numberSigned"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/y2TV"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:text="y^2 + "
+            android:textColor="#000000" />
+
+        <EditText
+            android:id="@+id/xy_value"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#ffffff"
+            android:gravity="bottom|center"
+            android:hint="......."
+            android:imeOptions="actionDone"
+            android:inputType="numberSigned"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/xyTV"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:text="xy + "
+            android:textColor="#000000" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout6"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_weight="5"
+        android:gravity="fill"
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        whatever:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        whatever:layout_constraintEnd_toEndOf="parent"
+        whatever:layout_constraintStart_toEndOf="@+id/middleRight"
+        whatever:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+        <EditText
+            android:id="@+id/x_value"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#ffffff"
+            android:gravity="bottom|center"
+            android:hint="......."
+            android:imeOptions="actionDone"
+            android:inputType="numberSigned"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/xTV"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:text="x + "
+            android:textColor="#000000" />
+
+        <EditText
+            android:id="@+id/y_value"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#ffffff"
+            android:gravity="bottom|center"
+            android:hint="......."
+            android:imeOptions="actionDone"
+            android:inputType="numberSigned"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/yTV"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:text="y + "
+            android:textColor="#000000" />
+
+        <EditText
+            android:id="@+id/one_value"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#ffffff"
+            android:gravity="bottom|center"
+            android:hint="......."
+            android:imeOptions="actionDone"
+            android:inputType="numberSigned"
+            android:textColor="#000000" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:gravity="fill"
+        android:orientation="vertical"
+        android:padding="0dp"
+        whatever:layout_constraintBottom_toTopOf="@+id/linearLayout7"
+        whatever:layout_constraintEnd_toEndOf="parent"
+        whatever:layout_constraintStart_toEndOf="@+id/middleRight"
+        whatever:layout_constraintTop_toBottomOf="@+id/linearLayout6">
+
+        <Button
+            android:id="@+id/custom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="8sp"
+            android:text="Choose Q" />
+
+        <Button
+            android:id="@+id/new_question_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="8sp"
+            android:text="@string/newQ" />
+        <!-- Tutorial button -->
+        <Button
+            android:id="@+id/tutorial"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="Tutorial"
+            android:visibility="gone" />
+
+        <ToggleButton
+            android:id="@+id/drag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textOff="drag"
+            android:textOn="drag"
+            android:textSize="12sp"
+            android:visibility="gone" />
+
+        <ToggleButton
+            android:id="@+id/rotate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textOff="rotate"
+            android:textOn="rotate"
+            android:textSize="12sp"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout7"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        whatever:layout_constraintBottom_toTopOf="@+id/linearLayout8"
+        whatever:layout_constraintEnd_toEndOf="parent"
+        whatever:layout_constraintHorizontal_bias="0.5"
+        whatever:layout_constraintStart_toEndOf="@+id/middleRight"
+        whatever:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="96dp"
+            android:layout_height="60dp"
+            android:layout_weight="10"
+            android:gravity="fill"
+            android:orientation="horizontal"
+            android:padding="0dp"
+            android:weightSum="2"
+            tools:layout_editor_absoluteX="445dp"
+            tools:layout_editor_absoluteY="222dp">
+
+            <ToggleButton
+                android:id="@+id/mute"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textOff="mute-"
+                android:textOn="mute+"
+                android:textSize="8sp" />
+
+            <ToggleButton
+                android:id="@+id/remove"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textOff="rem-"
+                android:textOn="rem+"
+                android:textSize="8sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout5"
+            android:layout_width="95dp"
+            android:layout_height="60dp"
+            android:layout_weight="10"
+            android:gravity="fill"
+            android:orientation="horizontal"
+            android:padding="0dp"
+            android:weightSum="2"
+            tools:layout_editor_absoluteX="541dp"
+            tools:layout_editor_absoluteY="222dp">
+
+            <Button
+                android:id="@+id/check_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/check"
+                android:textSize="8sp"
+                android:singleLine="true" />
+
+            <Button
+                android:id="@+id/refresh_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/refresh"
+                android:textSize="8sp"
+                android:singleLine="true"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/sv"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        whatever:layout_constraintBottom_toBottomOf="parent"
+        whatever:layout_constraintEnd_toEndOf="parent"
+        whatever:layout_constraintStart_toEndOf="@+id/lowerRight"
+        whatever:layout_constraintTop_toBottomOf="@+id/linearLayout7">
+
+        <LinearLayout
+            android:id="@+id/notRotatedButtonLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Space
+                android:id="@+id/space5"
+                android:layout_width="1dp"
+                android:layout_height="120dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:gravity="center">
+                <Space
+                    android:id="@+id/space3"
+                    android:layout_width="8dp"
+                    android:layout_height="1dp" />
+
+                <com.freelance.jptalusan.algetiles.ExtendedViews.AlgeTilesTextView
+                    android:id="@+id/tile_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    whatever:tileType="tile_1" />
+
+                <Space
+                    android:id="@+id/space4"
+                    android:layout_width="8dp"
+                    android:layout_height="8dp" />
+
+                <com.freelance.jptalusan.algetiles.ExtendedViews.AlgeTilesTextView
+                    android:id="@+id/x_tile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="x"
+                    whatever:tileType="x_tile" />
+
+                <Space
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:visibility="visible" />
+
+                <com.freelance.jptalusan.algetiles.ExtendedViews.AlgeTilesTextView
+                    android:id="@+id/y_tile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="y"
+                    android:visibility="visible"
+                    whatever:tileType="y_tile" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:visibility="visible" />
+
+            <com.freelance.jptalusan.algetiles.ExtendedViews.AlgeTilesTextView
+                android:id="@+id/xy_tile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="xy"
+                android:visibility="visible"
+                whatever:tileType="xy_tile" />
+
+            <Space
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:visibility="visible" />
+
+            <com.freelance.jptalusan.algetiles.ExtendedViews.AlgeTilesTextView
+                android:id="@+id/x2_tile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="x2"
+                whatever:tileType="x2_tile" />
+
+
+            <Space
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:visibility="visible" />
+
+            <com.freelance.jptalusan.algetiles.ExtendedViews.AlgeTilesTextView
+                android:id="@+id/y2_tile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="y2"
+                android:visibility="visible"
+                whatever:tileType="y2_tile" />
+        </LinearLayout>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>

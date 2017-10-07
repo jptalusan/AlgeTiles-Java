@@ -127,8 +127,14 @@ public class AlgorithmUtilities {
         }
 
         //TODO: Fix for 2 variables
-        if (areConstantsOnlyOneWwithValues(activityType, vars, numberOfVariables))
+        if (areConstantsOnlyOneWwithValues(activityType, vars, numberOfVariables)) {
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException err) {
+                err.printStackTrace();
+            }
             return RNG(activityType, numberOfVariables);
+        }
 
         return vars;
     }
@@ -178,6 +184,10 @@ public class AlgorithmUtilities {
 
     public static int PickRandom(Random rnd, int a, int b)
     {
+        Log.d(TAG, "bound (b-a): " + b + "-" + a);
+        if (a == b) {
+            return 0;
+        }
         return rnd.nextInt(b - a) + a;
     }
 
@@ -365,13 +375,13 @@ public class AlgorithmUtilities {
             output.add(b * d);
         } else //two variables
         {
-            a = vars.get(1); //ax
-            b = vars.get(2); //by
-            c = vars.get(3); //c
+            a = vars.get(0); //ax
+            b = vars.get(1); //by
+            c = vars.get(2); //c
 
-            d = vars.get(4); //dx
-            e = vars.get(5); //ey
-            f = vars.get(6); //f
+            d = vars.get(3); //dx
+            e = vars.get(4); //ey
+            f = vars.get(5); //f
 
             output.add(a * d); //x2
             output.add(b * e); //y2
@@ -425,6 +435,7 @@ public class AlgorithmUtilities {
     */
     public static boolean isSuppliedMultiplyEquationValid(int[] vars, int numberOfVariables)
     {
+        Log.d(TAG, "isSupplied: " + vars.toString() + ", " + numberOfVariables);
         if (Constants.ONE_VAR == numberOfVariables)
         {
             int ax = vars[0];
@@ -503,6 +514,7 @@ public class AlgorithmUtilities {
             boolean firstEq = false;
             boolean secondEq = false;
 
+            Log.d(TAG, "isSuppliedValid: (" + ax + "," + by + "," + c + ")(" + dx + "," + ey + "," + f);
 //            Console.WriteLine("isSuppliedValid: " + ax + "," + by + "," + c + ")(" + dx + "," + ey + "," + f);
 
             if (c > 0)

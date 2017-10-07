@@ -83,7 +83,6 @@ public class HomeScreenActivity extends AppCompatActivity {
         }
     };
 
-    //TODO: fix the layout change when back is pressed
     @Override
     public void onBackPressed() {
         if (oneVarBtn.getVisibility() == View.VISIBLE) {
@@ -93,8 +92,8 @@ public class HomeScreenActivity extends AppCompatActivity {
             multiplyTutorialButton.setVisibility(View.VISIBLE);
             generalTutorialButton.setVisibility(View.VISIBLE);
 
-            oneVarBtn.setVisibility(View.INVISIBLE);
-            twoVarBtn.setVisibility(View.INVISIBLE);
+            oneVarBtn.setVisibility(View.GONE);
+            twoVarBtn.setVisibility(View.GONE);
 
         } else {
             finish();
@@ -137,21 +136,19 @@ public class HomeScreenActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), FactorActivity.class);
                 if (Character.getNumericValue(button.getText().charAt(0)) == 1) {
                     intent.putExtra(Constants.VARIABLE_COUNT, Character.getNumericValue(button.getText().charAt(0)));
-//                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 } else
                     Toast.makeText(getApplicationContext(), "Not implemented.", Toast.LENGTH_SHORT).show();
                 startActivity(intent);
             } else if (Constants.MULTIPLY.equals(activityType) && Constants.ONE_VAR == Character.getNumericValue(button.getText().charAt(0))) {
                 Intent intent = new Intent(getApplicationContext(), MultiplyActivity.class);
                 intent.putExtra(Constants.VARIABLE_COUNT, Character.getNumericValue(button.getText().charAt(0)));
-//                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
-            } // else if (Constants.MULTIPLY == activityType && Constants.TWO_VAR == Character.getNumericValue(button.getText().charAt(0))) {
-//                Intent intent = new Intent(this, typeof(MultiplyTwoVarActivity));
-//                intent.putExtra(Constants.VARIABLE_COUNT, Character.getNumericValue(button.getText().charAt(0)));
-//                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//                startActivity(intent);
-//            }
+            } else if (Constants.MULTIPLY.equals(activityType) && Constants.TWO_VAR == Character.getNumericValue(button.getText().charAt(0))) {
+                Intent intent = new Intent(getApplicationContext(), MultiplyTwoVarActivity.class);
+                intent.putExtra(Constants.VARIABLE_COUNT, Character.getNumericValue(button.getText().charAt(0)));
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+            }
         }
     };
 }
