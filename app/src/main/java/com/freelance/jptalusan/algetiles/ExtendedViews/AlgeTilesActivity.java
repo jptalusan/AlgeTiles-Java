@@ -3,9 +3,12 @@ package com.freelance.jptalusan.algetiles.ExtendedViews;
 import android.app.Application;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -18,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.freelance.jptalusan.algetiles.Activities.FactorActivity;
 import com.freelance.jptalusan.algetiles.R;
 import com.freelance.jptalusan.algetiles.Utilities.AlgorithmUtilities;
 import com.freelance.jptalusan.algetiles.Utilities.Constants;
@@ -262,14 +266,26 @@ public abstract class AlgeTilesActivity extends AppCompatActivity {
                 lowerRightGrid.drawRects(lowerRightRectTileList);
                 lowerLeftGrid.drawRects(lowerLeftRectTileList);
 
-//                new AlertDialog.Builder(this)
-//                        .SetPositiveButton(Constants.PROCEED_TO_MULTIP, (sender, args) =>
-//                {
-//                    // User pressed yes
-//                })
-//						.SetMessage(Constants.CORRECT_PLACEMENT)
-//                    .SetTitle(Constants.CORRECT)
-//                    .Show();
+                AlertDialog.Builder builder;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    builder = new AlertDialog.Builder(AlgeTilesActivity.this, android.R.style.Theme_Material_Dialog_Alert);
+                } else {
+                    builder = new AlertDialog.Builder(AlgeTilesActivity.this);
+                }
+                builder.setTitle(Constants.CORRECT)
+                        .setMessage(Constants.CORRECT_PLACEMENT)
+                        .setPositiveButton(Constants.PROCEED_TO_MULTIP, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                // continue with delete
+                            }
+                        })
+                        .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                // do nothing
+                            }
+                        })
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
             }
             else
             {
@@ -545,14 +561,27 @@ public abstract class AlgeTilesActivity extends AppCompatActivity {
                 lowerLeftRectTileList.clear();
 
                 isSecondAnswerCorrect = true;
-//                new AlertDialog.Builder(this)
-//                        .SetPositiveButton(Constants.PROCEED + Constants.COEFFICIENTS, (sender, args) =>
-//                {
-//                    // User pressed yes
-//                })
-//						.SetMessage(Constants.CORRECT_MULTIP)
-//                    .SetTitle(Constants.CORRECT)
-//                    .Show();
+
+                AlertDialog.Builder builder;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    builder = new AlertDialog.Builder(AlgeTilesActivity.this, android.R.style.Theme_Material_Dialog_Alert);
+                } else {
+                    builder = new AlertDialog.Builder(AlgeTilesActivity.this);
+                }
+                builder.setTitle(Constants.CORRECT)
+                        .setMessage(Constants.CORRECT_MULTIP)
+                        .setPositiveButton(Constants.PROCEED + Constants.COEFFICIENTS, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                // continue with delete
+                            }
+                        })
+                        .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                // do nothing
+                            }
+                        })
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
 
                 for (int i = 0; i < innerGridLayoutList.size(); ++i)
                 {
@@ -644,20 +673,27 @@ public abstract class AlgeTilesActivity extends AppCompatActivity {
                 if (!muteToggle.isChecked())
                     correct.start();
 
-
-//                new AlertDialog.Builder(this)
-//                        //.SetPositiveButton("New Question", (sender, args) =>
-//                        //{
-//                        //	setupNewQuestion(numberOfVariables);
-//                        //	refreshScreen(Constants.FACTOR, gridValueList, innerGridLayoutList, outerGridLayoutList);
-//                        //})
-//                        .SetNegativeButton("OK", (sender, args) =>
-//                {
-//
-//                })
-//						.SetMessage(Constants.CORRECT + Constants.COEFFICIENTS)
-//                    .SetTitle(Constants.CORRECT)
-//                    .Show();
+                AlertDialog.Builder builder;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    builder = new AlertDialog.Builder(AlgeTilesActivity.this, android.R.style.Theme_Material_Dialog_Alert);
+                } else {
+                    builder = new AlertDialog.Builder(AlgeTilesActivity.this);
+                }
+                builder.setTitle(Constants.CORRECT)
+                        .setMessage(Constants.CORRECT + Constants.COEFFICIENTS)
+                        .setPositiveButton("New Question", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                setupNewQuestion();
+                                refreshScreen(Constants.MULTIPLY, gridValueList, innerGridLayoutList, outerGridLayoutList);
+                            }
+                        })
+                        .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                // do nothing
+                            }
+                        })
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
             }
             else
             {

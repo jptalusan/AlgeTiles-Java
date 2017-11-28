@@ -51,7 +51,7 @@ public class HomeScreenActivity extends AppCompatActivity {
 
         if (prefs.getBoolean(Constants.FIRST_TIME, true))
         {
-//            prefs.edit().putBoolean(Constants.FIRST_TIME, false).apply();
+            prefs.edit().putBoolean(Constants.FIRST_TIME, false).apply();
 
             Intent intent = new Intent(this, TutorialActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
